@@ -2,12 +2,15 @@
 
 import os
 
+from panel_components.utils import IS_A_JUPYTER_NOTEBOOK
 from panel_components.vue import vue_app
 
 
 def page(*children, **attributes):
-
-    component = vue_app("", *children, **attributes)
+    if IS_A_JUPYTER_NOTEBOOK:
+        component = vue_app("", *children, style="height: 80vh", **attributes)
+    else:
+        component = vue_app("", *children, **attributes)
     (
         component
         .asset_folders(
@@ -20,9 +23,9 @@ def page(*children, **attributes):
         )
         .append_body_js(
             bootstrap_vue="vue/bootstrap-vue.min.js",
-            # bootstrap_vue_icons="vue/bootstrap-vue-icons.min.js",
-            portal_vue="vue/portal-vue.min.js",
+            bootstrap_vue_icons="vue/bootstrap-vue-icons.min.js",
+            portal_vue="vue/portal-vue.umd.min.js",
         )
-        .append_body_script(bootstrap_vue=';Vue.use(BootstrapVue);')
+        .append_body_script(bootstrap_vue='Vue.use(BootstrapVue);Vue.use(BootstrapVueIcons)')
     )
     return component
