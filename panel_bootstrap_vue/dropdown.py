@@ -4,7 +4,9 @@ from panel_components.component import Component
 
 
 def b_dropdown(*children, **attributes):
-    return Component(*children, tag_name="b-dropdown", auto_id=True, **attributes)
+    return Component(*children, tag_name="b-dropdown",
+    #  auto_id=True,
+     **attributes)
 
 
 def b_dropdown_item(*children, **attributes):

@@ -8,7 +8,7 @@ from panel_components.component import Component
 def navbar(*children, title=None, **attributes):
     content = Component(
         *children,
-        auto_id=True,
+        # auto_id=True,
         tag_name="b-collapse",
         **{"is-nav": ""}
     )

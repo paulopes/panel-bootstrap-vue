@@ -3,14 +3,14 @@
 import os
 
 from panel_components.utils import IS_A_JUPYTER_NOTEBOOK
-from panel_components.vue import vue_app
+from panel_components.vue import vue
 
 
 def page(*children, **attributes):
     if IS_A_JUPYTER_NOTEBOOK:
-        component = vue_app("", *children, style="height: 80vh", **attributes)
+        component = vue("", *children, style="height: 80vh", **attributes)
     else:
-        component = vue_app("", *children, **attributes)
+        component = vue("", *children, **attributes)
     (
         component
         .asset_folders(
