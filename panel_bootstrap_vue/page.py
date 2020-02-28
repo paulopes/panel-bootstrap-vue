@@ -18,7 +18,7 @@ def page(*children, **attributes):
         )
         .prepend_body_css(bootstrap="bootstrap/bootstrap.min.css")
         .prepend_body_css(
-            typography="typography/core.css",
+            typography="typography/core.min.css",
             bootstrap_vue="vue/bootstrap-vue.min.css",
         )
         .append_body_js(
