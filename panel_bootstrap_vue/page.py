@@ -12,9 +12,8 @@ def page(*children, **attributes):
     else:
         component = vue("", *children, **attributes)
     (
-        component
-        .asset_folders(
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+        component.asset_folders(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "www")
         )
         .prepend_body_css(bootstrap="bootstrap/bootstrap.min.css")
         .prepend_body_css(
@@ -26,6 +25,8 @@ def page(*children, **attributes):
             bootstrap_vue_icons="vue/bootstrap-vue-icons.min.js",
             portal_vue="vue/portal-vue.umd.min.js",
         )
-        .append_body_script(bootstrap_vue='Vue.use(BootstrapVue);Vue.use(BootstrapVueIcons)')
+        .append_body_script(
+            bootstrap_vue="Vue.use(BootstrapVue);Vue.use(BootstrapVueIcons)"
+        )
     )
     return component
