@@ -1,0 +1,2 @@
+panel==0.*,>=0.9.7
+panel-components==0.*,>=0.1.0
